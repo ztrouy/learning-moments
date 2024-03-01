@@ -49,7 +49,7 @@ import { FormControl, Grid, InputAdornment, InputLabel, MenuItem, Select, TextFi
                 flexDirection={"column"}
                 alignItems={"center"}
             >
-                <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} margin={2}>
+                <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} maxWidth={800} margin={2}>
                     <Box>
                         <FormControl sx={{width: 200}}>
                             <InputLabel>Filter by Topic</InputLabel>

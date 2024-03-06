@@ -1,4 +1,4 @@
-import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField } from "@mui/material"
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 import { useEffect, useState } from "react"
 import { getAllPostsByUser } from "../../services/postService.jsx"
 import { getAllTopics } from "../../services/topicService.jsx"

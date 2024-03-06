@@ -60,7 +60,7 @@ export const NewPost = ({ currentUser }) => {
                 ></TextField>
                 <FormControl fullWidth size="small" sx={{maxWidth: 400, marginTop: 3}}>
                     <Select value={topic} onChange={event => setTopic(event.target.value)}>
-                        <MenuItem value={0} key={0}>Select a Topic</MenuItem>
+                        <MenuItem disabled value={0} key={0}>Select a Topic</MenuItem>
                         {allTopics.map(topicObj => {return <MenuItem value={topicObj.id} key={topicObj.id}>{topicObj.name}</MenuItem>})}
                     </Select>
                 </FormControl>

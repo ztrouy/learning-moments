@@ -97,10 +97,10 @@ export const PostDetails = ({ currentUser }) => {
                         isLiked ? (
                             <Button variant="contained" onClick={handleLike}>Unlike Post</Button>
                         ) : (
-                            <Button variant="contained" onClick={handleLike}>Like Post</Button>
+                            <Button variant="contained" onClick={handleLike}>Like Post</Button> // TODO | Navigate user to favorites after
                         )
                     ) : (
-                        <Button variant="contained">Edit Post</Button>
+                        <Button variant="contained">Edit Post</Button> // TODO | Navigate user to edit post view
                     )}
                     
                 </Grid>

@@ -10,7 +10,7 @@ export const Navbar = () => {
                 <Grid display={"flex"} flexDirection={"row"} justifyContent={"space-between"}>
                     <Toolbar direction={"row"}>
                         <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>All Posts</Button>
-                        <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>My Posts</Button>
+                        <Button variant="text" component={Link} to={"/posts/my"} sx={{color: "white"}}>My Posts</Button>
                         <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>Favorites</Button>
                         <Button variant="text" component={Link} to={"/posts/new"} sx={{color: "white"}}>New Post</Button>
                     </Toolbar>

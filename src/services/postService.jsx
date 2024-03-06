@@ -17,3 +17,15 @@ export const likePost = (likeObject) => {
 
     return fetch("http://localhost:8088/postLikes", postOptions)
 }
+
+export const modifyPostLike = (likeObject) => {
+    const putOptions = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(likeObject)
+    }
+
+    return fetch(`http://localhost:8088/postLikes/${likeObject.id}`, putOptions)
+}

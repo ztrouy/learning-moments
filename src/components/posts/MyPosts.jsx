@@ -2,7 +2,6 @@ import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField 
 import { useEffect, useState } from "react"
 import { getAllPostsByUser } from "../../services/postService.jsx"
 import { getAllTopics } from "../../services/topicService.jsx"
-import { Post } from "./Post.jsx"
 import { PostSimple } from "./PostSimple.jsx"
 
 export const MyPosts = ({ currentUser }) => {
@@ -48,7 +47,7 @@ export const MyPosts = ({ currentUser }) => {
 
     return (
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} marginTop={3}>
+            <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} maxWidth={800} marginTop={4}>
                 <Box>
                     <FormControl sx={{width: 200}}>
                         <InputLabel>Filter by Topic</InputLabel>
@@ -82,6 +81,7 @@ export const MyPosts = ({ currentUser }) => {
                 flexDirection={"column"}
                 alignItems={"center"}
                 width={0.7}
+                marginTop={2}
             >
                 {filteredPosts.map(post => {
                     return <PostSimple post={post} refreshPosts={refreshPosts} key={post.id}/>

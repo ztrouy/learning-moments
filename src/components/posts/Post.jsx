@@ -1,6 +1,7 @@
 import React from "react"
 import Paper from '@mui/material/Paper'
 import { Chip, Typography } from "@mui/material"
+import { Link } from "react-router-dom"
 
 export const Post = ({ post }) => {
     return (
@@ -12,12 +13,13 @@ export const Post = ({ post }) => {
             boxSizing: "border-box"
         }}>
             <Typography variant="h3" sx={{fontWeight: "bold"}}>
-                {post.title}
+                <Link to={`/posts/${post.id}`} style={{textDecoration: "none", color: "black"}}>{post.title}</Link>
             </Typography>
             <Chip label={post.topic.name} sx={{
                 backgroundColor: "#FF5E00", 
                 color: "white", 
-                fontWeight: "bold"
+                fontWeight: "bold",
+                marginTop: 1
             }}/>
             <Typography sx={{
                 display: "flex",

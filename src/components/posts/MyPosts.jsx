@@ -1,7 +1,9 @@
-import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select } from "@mui/material"
+import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField } from "@mui/material"
 import { useEffect, useState } from "react"
-import { getAllPosts } from "../../services/postService.jsx"
+import { getAllPostsByUser } from "../../services/postService.jsx"
 import { getAllTopics } from "../../services/topicService.jsx"
+import { Post } from "./Post.jsx"
+import { PostSimple } from "./PostSimple.jsx"
 
 export const MyPosts = ({ currentUser }) => {
     const [myPosts, setMyPosts] = useState([])
@@ -11,8 +13,8 @@ export const MyPosts = ({ currentUser }) => {
     const [searchTerm, setSearchTerm] = useState("")
 
     const refreshPosts = () => {
-        getAllPosts().then(postsArray => {
-            setMyPosts(postsArray.filter(post => post.userId === currentUser.id))
+        getAllPostsByUser(currentUser.id).then(postsArray => {
+            setMyPosts(postsArray)
         })
     }
 
@@ -41,10 +43,12 @@ export const MyPosts = ({ currentUser }) => {
         setFilteredPosts(foundPosts)
     }, [searchTerm, myPosts])
     
+    console.log("My Posts", myPosts)
+    console.log("Filtered Posts:", filteredPosts)
 
     return (
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Grid container direction={"row"} justifyContent={"space-between"} width={0.7}>
+            <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} marginTop={3}>
                 <Box>
                     <FormControl sx={{width: 200}}>
                         <InputLabel>Filter by Topic</InputLabel>
@@ -63,18 +67,26 @@ export const MyPosts = ({ currentUser }) => {
                     </FormControl>
                 </Box>
                 <Box>
-
+                    <TextField
+                        id="outlined-search"
+                        label="Search for a Post"
+                        type="search"
+                        onChange={(event) => {
+                            setSearchTerm(event.target.value)
+                        }}
+                    />
                 </Box>
             </Grid>
-            <Paper elevation={3} sx={{
-                width: 1,
-                maxWidth: 800,
-                padding: 4,
-                margin: 2,
-                boxSizing: "border-box"
-            }}>
-                Hello World!
-            </Paper>
+            <Box
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"center"}
+                width={0.7}
+            >
+                {filteredPosts.map(post => {
+                    return <PostSimple post={post} refreshPosts={refreshPosts} key={post.id}/>
+                })}
+            </Box>
         </Box>
     )
 }

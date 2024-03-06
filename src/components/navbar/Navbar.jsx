@@ -12,7 +12,7 @@ export const Navbar = () => {
                         <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>All Posts</Button>
                         <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>My Posts</Button>
                         <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>Favorites</Button>
-                        <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>New Post</Button>
+                        <Button variant="text" component={Link} to={"/posts/new"} sx={{color: "white"}}>New Post</Button>
                     </Toolbar>
                     <Toolbar direction={"row"}>
                         <Button variant="text" component={Link} to={"/"} sx={{color: "white"}}>Profile</Button>

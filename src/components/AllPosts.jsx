@@ -1,9 +1,9 @@
-import { Post } from "./posts/Post.jsx"
+import React from "react"
 import Box from '@mui/material/Box'
+import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import { Post } from "./posts/Post.jsx"
 import { getAllPosts } from "../services/postService.jsx"
 import { getAllTopics } from "../services/topicService.jsx"
-import React from "react"
-import { FormControl, Grid, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 
  export const AllPosts = () => {
     const [allPosts, setAllPosts] = React.useState([])
@@ -49,7 +49,7 @@ import { FormControl, Grid, InputAdornment, InputLabel, MenuItem, Select, TextFi
                 flexDirection={"column"}
                 alignItems={"center"}
             >
-                <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} maxWidth={800} margin={2}>
+                <Grid container direction={"row"} justifyContent={"space-between"} width={0.7} maxWidth={800} margin={2} marginTop={4}>
                     <Box>
                         <FormControl sx={{width: 200}}>
                             <InputLabel>Filter by Topic</InputLabel>

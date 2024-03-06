@@ -27,7 +27,7 @@ export const Post = ({ post }) => {
                 fontWeight: "bold",
                 color: "#6F6F6F"
             }}>
-                {post.postLikes.length} Likes
+                {post.postLikes.filter(like => like.isLiked === true).length} Likes
             </Typography>
         </Paper>
     )

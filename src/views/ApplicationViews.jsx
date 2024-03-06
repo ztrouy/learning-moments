@@ -3,6 +3,7 @@ import { AllPosts } from "../components/AllPosts"
 import { Navbar } from "../components/navbar/Navbar"
 import { useEffect, useState } from "react"
 import { PostDetails } from "../components/posts/PostDetails.jsx"
+import { NewPost } from "../components/posts/NewPost.jsx"
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState([])
@@ -25,6 +26,7 @@ export const ApplicationViews = () => {
                 <Route index element={<AllPosts/>}/>
                 <Route path="posts">
                     <Route path=":postId" element={<PostDetails currentUser={currentUser}/>}/>
+                    <Route path="new" element={<NewPost currentUser={currentUser}/>}/>
                 </Route>
             </Route>
         </Routes>

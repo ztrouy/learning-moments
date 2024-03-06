@@ -2,6 +2,7 @@ import { Box, Button, FormControl, Grid, MenuItem, Paper, Select, TextField, Typ
 import { useEffect, useState } from "react"
 import { getAllTopics } from "../../services/topicService.jsx"
 import { createPost } from "../../services/postService.jsx"
+import { useNavigate } from "react-router"
 
 export const NewPost = ({ currentUser }) => {
     const [title, setTitle] = useState("")
@@ -17,9 +18,11 @@ export const NewPost = ({ currentUser }) => {
 
     const createNewPost = (postObj) => {
         createPost(postObj).then(() => {
-            console.log("Post submitted!")
+            navigate("/posts/my")
         })
     }
+    
+    const navigate = useNavigate()
     
     const handleSubmit = () => {
         const postObj = {

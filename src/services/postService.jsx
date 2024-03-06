@@ -6,6 +6,18 @@ export const getPostById = (postId) => {
     return fetch(`http://localhost:8088/posts/${postId}?_expand=topic&_expand=user&_embed=postLikes`).then(res => res.json())
 }
 
+export const createPost = (postObject) => {
+    const postOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(postObject)
+    }
+
+    return fetch("http://localhost:8088/posts", postOptions)
+}
+
 export const likePost = (likeObject) => {
     const postOptions = {
         method: "POST",

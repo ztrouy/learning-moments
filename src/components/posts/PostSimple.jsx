@@ -16,7 +16,7 @@ export const PostSimple = ({ post, refreshPosts }) => {
             margin: 2,
             boxSizing: "border-box"
         }}>
-            <Typography variant="h5">{post.title}</Typography>
+            <Typography variant="h3" fontWeight={"bold"}>{post.title}</Typography>
             <Button variant="contained" sx={{marginTop: 1}} onClick={handleDelete}>Delete</Button>
         </Paper>
     )
